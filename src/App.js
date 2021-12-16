@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import { data } from './constants/rockets.js'
+import { Card } from './components/Card/Card.jsx'
+ 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+     {data.map(({company, country, flickr_images, wikipedia, id}) => <Card key={id} 
+     company={company} 
+     country={country} 
+     flickr_images={flickr_images}
+     wikipedia={wikipedia}
+     />)}
     </div>
   );
 }
